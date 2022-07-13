@@ -1,5 +1,6 @@
 package com.fuad.suitmediaintern
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,16 +15,33 @@ class PalindromeActivity : AppCompatActivity() {
         binding = ActivityPalindromeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        setupAction()
+    }
+
+
+    private fun checkPalindrome(){
+        val text = binding.edtPalindrome.text.toString()
+        if (ispalindrome(text)) {
+            Toast.makeText(this, "Entered word is palindrome ", Toast.LENGTH_SHORT).show()
+
+        } else {
+
+            Toast.makeText(this, "Entered word is not a Palindrome", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun nextScreen(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun setupAction(){
         binding.btnCheck.setOnClickListener {
-            val text = binding.edtPalindrome.text.toString()
-            if (ispalindrome(text)) {
-                Toast.makeText(this, "Entered word is palindrome ", Toast.LENGTH_SHORT).show()
+            checkPalindrome()
+        }
 
-            } else {
-
-                Toast.makeText(this, "Entered word is not a Palindrome", Toast.LENGTH_SHORT).show()
-
-            }
+        binding.btnNext.setOnClickListener{
+            nextScreen()
         }
     }
 
@@ -33,5 +51,7 @@ class PalindromeActivity : AppCompatActivity() {
     }
 
 
-
+    companion object {
+        const val EXTRA_NAME = "extra_name"
+    }
 }

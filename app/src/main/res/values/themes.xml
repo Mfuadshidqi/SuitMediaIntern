@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SuitMediaIntern" parent="Theme.MaterialComponents.Light.Bridge">
+    <style name="Theme.SuitMediaIntern" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/button</item>
+        <item name="colorPrimary">@color/button</item>
+        <item name="colorPrimaryVariant">@color/teal_200</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +13,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppTheme.ActionBar.Text" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/white</item>
+        <item name="android:theme">@style/Theme.SuitMediaIntern</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:textAppearance">@style/AppTheme.ActionBar.Text</item>
+    </style>
+
 </resources>
