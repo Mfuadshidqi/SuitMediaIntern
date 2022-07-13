@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SuitMediaIntern">
         <activity
-            android:name=".PalindromeActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PalindromeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

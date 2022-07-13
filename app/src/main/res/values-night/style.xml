@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="poppins_medium">
+        <item name="android:fontFamily">
+            @font/poppins_medium
+        </item>
+        <item name="android:textSize">
+            14sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+</resources>

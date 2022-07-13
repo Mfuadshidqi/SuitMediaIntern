@@ -17,26 +17,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.fuad.suitmediaintern.customview.NameEditText
+    <EditText
         android:id="@+id/edt_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:hint="Name"
+        android:textSize="14sp"
+        android:background="@drawable/round_edit_text"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_add_user" />
 
-    <com.fuad.suitmediaintern.customview.PalindromeEditText
+    <EditText
         android:id="@+id/edt_palindrome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:hint="Palindrome"
+        android:textSize="14sp"
+        android:background="@drawable/round_edit_text"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintTop_toBottomOf="@+id/edt_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -49,7 +55,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:text="Check"
-        android:textSize="16sp"
+        android:background="@drawable/round_style"
+        style="@style/poppins_medium"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_palindrome" />
 
@@ -61,7 +69,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:text="Next"
-        android:textSize="16sp"
+        style="@style/poppins_medium"
+        android:textColor="@color/white"
+        android:background="@drawable/round_style"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_check" />
 
