@@ -14,12 +14,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupToolbar()
+        getName()
+    }
 
+    private fun getName(){
+        val name = intent.getStringExtra(EXTRA_NAME)
+        binding.tvName.setText(name)
+    }
+
+    private fun setupToolbar(){
         toolbar = binding.appBar
         setSupportActionBar(toolbar)
+        supportActionBar?.setTitle("")
 
         toolbar.setNavigationOnClickListener{
             onBackPressed()
         }
+    }
+
+    companion object {
+        const val EXTRA_NAME = "extra_name"
     }
 }

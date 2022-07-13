@@ -19,20 +19,39 @@ class PalindromeActivity : AppCompatActivity() {
     }
 
 
-    private fun checkPalindrome(){
-        val text = binding.edtPalindrome.text.toString()
-        if (ispalindrome(text)) {
-            Toast.makeText(this, "Entered word is palindrome ", Toast.LENGTH_SHORT).show()
+    private fun checkPalindrome() {
+        val check = binding.edtPalindrome.text.toString()
+        when {
+            check.isEmpty() -> {
+                binding.edtPalindrome.error = "Palindrome tidak boleh kosong"
+            }
+            else -> {
+                val text = binding.edtPalindrome.text.toString()
+                if (ispalindrome(text)) {
+                    Toast.makeText(this, "Entered word is palindrome ", Toast.LENGTH_SHORT).show()
 
-        } else {
+                } else {
 
-            Toast.makeText(this, "Entered word is not a Palindrome", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Entered word is not a Palindrome", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
         }
     }
 
     private fun nextScreen(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        val name = binding.edtName.text.toString().trim()
+        when {
+            name.isEmpty() -> {
+                binding.edtName.error = "Nama tidak boleh kosong"
+            }
+            else -> {
+                val nama = binding.edtName.text.toString()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra(MainActivity.EXTRA_NAME, nama)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun setupAction(){
@@ -51,7 +70,5 @@ class PalindromeActivity : AppCompatActivity() {
     }
 
 
-    companion object {
-        const val EXTRA_NAME = "extra_name"
-    }
+
 }

@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
+    <com.fuad.suitmediaintern.customview.NameEditText
         android:id="@+id/edt_name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_add_user" />
 
-    <EditText
+    <com.fuad.suitmediaintern.customview.NameEditText
         android:id="@+id/edt_palindrome"
         android:layout_width="match_parent"
         android:layout_height="40dp"
