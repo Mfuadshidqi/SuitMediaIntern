@@ -1,23 +1,23 @@
-package com.fuad.suitmediaintern
+package com.fuad.suitmediaintern.response
 
 import com.google.gson.annotations.SerializedName
 
 data class UserResponse(
 
 	@field:SerializedName("per_page")
-	val perPage: Int? = null,
+	val perPage: Int,
 
 	@field:SerializedName("total")
-	val total: Int? = null,
+	val total: Int,
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<DataItem>,
 
 	@field:SerializedName("page")
-	val page: Int? = null,
+	val page: Int,
 
 	@field:SerializedName("total_pages")
-	val totalPages: Int? = null,
+	val totalPages: Int,
 
 //	@field:SerializedName("support")
 //	val support: Support? = null
@@ -35,17 +35,17 @@ data class UserResponse(
 data class DataItem(
 
 	@field:SerializedName("last_name")
-	val lastName: String? = null,
+	val lastName: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	val id: String,
 
 	@field:SerializedName("avatar")
-	val avatar: String? = null,
+	val avatar: String,
 
 	@field:SerializedName("first_name")
-	val firstName: String? = null,
+	val firstName: String,
 
 	@field:SerializedName("email")
-	val email: String? = null
+	val email: String
 )

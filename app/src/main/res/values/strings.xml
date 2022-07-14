@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SuitMediaIntern</string>
+    <string name="retry">Retry</string>
+    <string name="timeout">Timeout</string>
 </resources>

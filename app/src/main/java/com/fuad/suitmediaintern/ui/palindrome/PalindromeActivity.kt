@@ -1,10 +1,11 @@
-package com.fuad.suitmediaintern
+package com.fuad.suitmediaintern.ui.palindrome
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.fuad.suitmediaintern.databinding.ActivityPalindromeBinding
+import com.fuad.suitmediaintern.ui.main.MainActivity
 
 class PalindromeActivity : AppCompatActivity() {
 

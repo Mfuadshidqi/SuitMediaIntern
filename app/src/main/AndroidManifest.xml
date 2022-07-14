@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SuitMediaIntern" >
         <activity
-            android:name=".ListUserActivity"
+            android:name=".ui.listuser.ListUserActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".PalindromeActivity"
+            android:name=".ui.palindrome.PalindromeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

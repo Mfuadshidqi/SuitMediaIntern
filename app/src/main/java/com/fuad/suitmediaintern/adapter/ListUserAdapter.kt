@@ -1,41 +1,65 @@
 package com.fuad.suitmediaintern.adapter
 
+
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fuad.suitmediaintern.DataItem
+import com.fuad.suitmediaintern.R
 import com.fuad.suitmediaintern.databinding.CardUserBinding
+import com.fuad.suitmediaintern.local.entity.Users
+import com.fuad.suitmediaintern.ui.main.MainActivity
 
-class ListUserAdapter(private val listUser: ArrayList<DataItem>): RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
-    private lateinit var onItemClickCallback: OnItemClickCallback
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
+class ListUserAdapter:
+    PagingDataAdapter<Users, ListUserAdapter.MyViewHolder>(DIFF_CALLBACK) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val binding = CardUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
-    class ListViewHolder(var binding: CardUserBinding) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val binding = CardUserBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
-        return ListViewHolder(binding)
+    class MyViewHolder(private val binding: CardUserBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(context: Context, data: Users) {
+            binding.apply {
+                tvFirstName.text = data.firstname
+                tvLastName.text = data.lastname
+                tvItemEmail.text = data.email
+                itemView.setOnClickListener {
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.putExtra(MainActivity.EXTRA_DATA, data)
+                    context.startActivity(intent)
+                }
+            }
+            Glide.with(itemView.context)
+                .load(data.avatar)
+                .placeholder(R.drawable.image_loading)
+                .error(R.drawable.image_error)
+                .into(binding.imgItemPhoto)
+        }
     }
 
-    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val user = listUser[position]
-        Glide.with(holder.itemView.context)
-            .load(user.avatar)
-            .circleCrop()
-            .into(holder.binding.imgItemPhoto)
-        holder.binding.tvFirstName.text= user.firstName
-        holder.binding.tvLastName.text= user.lastName
-        holder.binding.tvItemEmail.text= user.email
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listUser[holder.adapterPosition]) }
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val data = getItem(position)
+        if (data != null) {
+            holder.bind(holder.itemView.context, data)
+        }
     }
 
-    override fun getItemCount(): Int = listUser.size
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Users>() {
+            override fun areItemsTheSame(oldItem: Users, newItem: Users): Boolean {
+                return oldItem == newItem
+            }
 
-    interface OnItemClickCallback {
-        fun onItemClicked(data: DataItem)
+            override fun areContentsTheSame(oldItem: Users, newItem: Users): Boolean {
+                return oldItem.id == newItem.id
+            }
+        }
     }
 }

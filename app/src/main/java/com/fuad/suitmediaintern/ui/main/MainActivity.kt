@@ -1,12 +1,14 @@
-package com.fuad.suitmediaintern
+package com.fuad.suitmediaintern.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bumptech.glide.Glide
+import com.fuad.suitmediaintern.response.DataItem
 
 import com.fuad.suitmediaintern.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayoutMediator
+import com.fuad.suitmediaintern.local.entity.Users
+import com.fuad.suitmediaintern.ui.listuser.ListUserActivity
+import com.fuad.suitmediaintern.ui.palindrome.PalindromeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     private fun getName(){
         val name = intent.getStringExtra(EXTRA_NAME)
         binding.tvName.setText(name)
+
+        val selectedUser = intent.getParcelableExtra<Users>(EXTRA_DATA)
+        binding.tvSelectedUser.setText(selectedUser?.firstname)
     }
 
     private fun setupAction(){
@@ -40,12 +45,9 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setTitle("")
 
         toolbar.setNavigationOnClickListener{
-            onBackPressed()
+            val intent = Intent(this, PalindromeActivity::class.java)
+            startActivity(intent)
         }
-    }
-
-    private fun setUserData(user: DataItem) {
-        binding.tvName.text = user.firstName
     }
 
     companion object {
