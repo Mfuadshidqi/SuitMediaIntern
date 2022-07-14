@@ -1,10 +1,8 @@
 package com.fuad.suitmediaintern.ui.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fuad.suitmediaintern.response.DataItem
-
+import androidx.appcompat.app.AppCompatActivity
 import com.fuad.suitmediaintern.databinding.ActivityMainBinding
 import com.fuad.suitmediaintern.local.entity.Users
 import com.fuad.suitmediaintern.ui.listuser.ListUserActivity
@@ -24,27 +22,27 @@ class MainActivity : AppCompatActivity() {
         setupAction()
     }
 
-    private fun getName(){
+    private fun getName() {
         val name = intent.getStringExtra(EXTRA_NAME)
-        binding.tvName.setText(name)
+        binding.tvName.text = name
 
         val selectedUser = intent.getParcelableExtra<Users>(EXTRA_DATA)
-        binding.tvSelectedUser.setText(selectedUser?.firstname)
+        binding.tvSelectedUser.text = selectedUser?.firstname
     }
 
-    private fun setupAction(){
-        binding.btnChooseUser.setOnClickListener{
+    private fun setupAction() {
+        binding.btnChooseUser.setOnClickListener {
             val intent = Intent(this, ListUserActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun setupToolbar(){
+    private fun setupToolbar() {
         toolbar = binding.appBar
         setSupportActionBar(toolbar)
-        supportActionBar?.setTitle("")
+        supportActionBar?.title = ""
 
-        toolbar.setNavigationOnClickListener{
+        toolbar.setNavigationOnClickListener {
             val intent = Intent(this, PalindromeActivity::class.java)
             startActivity(intent)
         }

@@ -4,13 +4,10 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fuad.suitmediaintern.response.DataItem
 import com.fuad.suitmediaintern.ui.main.MainActivity
-import com.fuad.suitmediaintern.ui.main.MainViewModel
 import com.fuad.suitmediaintern.adapter.ListUserAdapter
 import com.fuad.suitmediaintern.adapter.LoadingStateAdapter
 import com.fuad.suitmediaintern.databinding.ActivityListUserBinding
@@ -21,7 +18,6 @@ class ListUserActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityListUserBinding
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
-    private val listViewModel by viewModels<ListUserViewModel>()
     private lateinit var usersViewModel : ListUserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

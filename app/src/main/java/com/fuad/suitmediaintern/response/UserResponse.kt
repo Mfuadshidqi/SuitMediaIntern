@@ -19,18 +19,8 @@ data class UserResponse(
 	@field:SerializedName("total_pages")
 	val totalPages: Int,
 
-//	@field:SerializedName("support")
-//	val support: Support? = null
 )
 
-//data class Support(
-//
-//	@field:SerializedName("text")
-//	val text: String? = null,
-//
-//	@field:SerializedName("url")
-//	val url: String? = null
-//)
 
 data class DataItem(
 
